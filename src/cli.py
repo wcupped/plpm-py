@@ -1,7 +1,7 @@
 import argparse
 from repo import load_repo, sync_repo
 from installer import install_package
-
+from elevation import *
 
 def run():
     parser = argparse.ArgumentParser(prog="plpm")
@@ -12,6 +12,10 @@ def run():
     args = parser.parse_args()
 
     if args.S:
+        if not is_admin():
+            print("This action requires elevation. Restarting with administrator rights...")
+            relaunch_as_admin()
+
         repo = load_repo()
         if args.S in repo:
             print(f"Found {args.S}, installing...")
