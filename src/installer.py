@@ -54,11 +54,7 @@ def execute_silent_install(installer_path):
 def download_file(url, package_name):
     DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
-    filename = url.split("/")[-1].split("?")[0].split("#")[0]
-    filename = re.sub(r'[<>:"/\\|?*]', "_", filename).strip()
-
-    if not filename or filename in (".", ".."):
-        filename = f"{package_name}_installer"
+    filename = f"{package_name}_installer"
 
     file_path = DOWNLOADS_DIR / filename
 
