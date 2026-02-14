@@ -20,6 +20,7 @@ We're planning to improve the security and add more features in this package man
 
 # Installation
 Go to [Releases tab](https://github.com/wcupped/plpm-py/releases/latest) and choose the type of utility, portable or the setup one
+And don't forget to add the folder of PLPM to PATH!
 
 > [!NOTE]
 > You can also compile it yourself by executing `build.bat` file in the root directory of repository.
