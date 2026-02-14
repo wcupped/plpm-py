@@ -4,6 +4,7 @@ import stat
 import subprocess
 import requests
 from pathlib import Path
+from tqdm import tqdm
 from config import DOWNLOADS_DIR, HASHES_FILE
 from utils import compare_hashes
 import json
