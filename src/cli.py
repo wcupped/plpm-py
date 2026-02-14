@@ -3,11 +3,14 @@ from repo import load_repo, sync_repo
 from installer import install_package
 from elevation import *
 
+VERSION = "0.1.2"
+
 def run():
     parser = argparse.ArgumentParser(prog="plpm")
     parser.add_argument("-S", metavar="package", help="Install package")
     parser.add_argument("-F", metavar="package", help="Find package")
     parser.add_argument("-Sr", action="store_true", help="Sync repository")
+    parser.add_argument("-v", action="store_true", help="Print version and exit")
 
     args = parser.parse_args()
 
@@ -24,17 +27,21 @@ def run():
             else:
                 print("Installation failed.")
         else:
-            print("Package not found.")
+            print("Package not found. Did you sync repo?")
 
     elif args.F:
         repo = load_repo()
         if args.F in repo:
             print(f"{args.F}: {repo[args.F]}")
         else:
-            print("Package not found.")
+            print("Package not found. Did you sync repo?")
 
     elif args.Sr:
         sync_repo()
+
+    elif args.v:
+        print(f"PLPM {VERSION}")
+        print("Made by Nikita Antropov, 2026.")
 
     else:
         parser.print_help()
