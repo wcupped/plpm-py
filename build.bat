@@ -1,0 +1,1 @@
+pyinstaller --noconfirm --onedir --console --icon "logo/plpm.ico" --name "plpm" "src/main.py" --distpath output
